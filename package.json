@@ -1,0 +1,25 @@
+{
+  "name": "node-server-parcel",
+  "version": "1.0.0",
+  "description": "Node server Express and Parcel",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkwa4940/studbud.git"
+  },
+  "keywords": [
+    "Study",
+    "online",
+    "help"
+  ],
+  "author": "John Kwak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkwa4940/studbud/issues"
+  },
+  "homepage": "https://github.com/jkwa4940/studbud#readme"
+}
