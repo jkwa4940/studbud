@@ -1,1 +1,64 @@
-<h1>test</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="scss/main.scss" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/1ca5ba8557.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body class="app-container">
+
+    <nav class="top-nav">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#home" class="active">Home</a></li>                   
+            <li class="nav-item"><a href="#page1">Page 1</a></li>
+            <li class="nav-item"><a href="#page2">Page 2</a></li>
+            <li class="nav-item"><a href="#page3">Page 3</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page-container">
+        <h1>Hello World Wide Web</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>Page 1</h1>
+        <nav class="sub-nav">
+            <ul class="nav-links">              
+                <li class="nav-item"><a href="#page1-1" class="active">Page 1-1</a></li>
+                <li class="nav-item"><a href="#page1-2">Page 1-2</a></li>
+            </ul>
+        </nav>
+
+        <div id="page1-1" class="sub-page-container">
+            <h2>Page 1 - 1</h2>
+        </div>
+
+        <div id="page1-2" class="sub-page-container" style="display: none;">
+            <h2>Page 1 - 2</h2>
+        </div>
+    </div>
+
+    <div id="page2" class="page-container">
+        <h1>Page 2</h1>
+    </div>
+
+    <div id="page3" class="page-container">
+        <h1>Page 3</h1>
+    </div>
+    
+
+
+    <script src="script.js">
+    </script>
+</body>
+
+
+</html>
