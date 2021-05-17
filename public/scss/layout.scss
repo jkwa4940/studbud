@@ -1,9 +1,16 @@
 .app-container {
-    background-color: rgb(43, 43, 43);
+    background-color: #222;
+    padding-left: 200px;
+}
+
+html {
+    background: url(../img/nature.jpg) no-repeat center fixed;
+    background-size: cover;
+
 }
 
 .page-container {
-    margin: 4em;
+    margin: auto;
 
     &#home {
         text-align: center;

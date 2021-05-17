@@ -1,24 +1,41 @@
 nav {
-    width: 100%;
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(26, 26, 26);
     display: flex;
     justify-content: space-around;
     align-items: center;
     .nav-links {
         list-style: none;
         display: flex;
+        font-weight: bold;
         .nav-item a {
             display: inline-block;
             text-decoration: none;
+            font-family: "Roboto";
             color: white;
-            padding: 1em 2em;
+            padding: 4em 0;
             
             &:hover {
-                color: #abc;
+                color: rgb(166, 255, 233);
             }
             &.active {
-                font-weight: bold;
+                color: rgb(0, 255, 191);
             }
+        }
+    }
+}
+
+nav.vertical {
+    width: 200px;
+    height: 100vh;
+    flex-direction: row;
+    position: absolute;
+    left: 0%;
+    top: 0;
+    .nav-links {
+        flex-direction: column;
+        .nav-item a {
+            display: block;
+            padding: 4em 0;
         }
     }
 }

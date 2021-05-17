@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="3726c2e58e14a34ff58a760d13283737" rel="stylesheet" type="text/css">
+    <script src="a2b112af220e211b6966ee22328ab77f" crossorigin="anonymous"></script>
+</head>
+
+
+<body class="app-container">
+
+    <nav class="vertical-nav">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#home" class="active">Home</a></li>                   
+            <li class="nav-item"><a href="#page1">Page 1</a></li>
+            <li class="nav-item"><a href="#page2">Page 2</a></li>
+            <li class="nav-item"><a href="#page3">Page 3</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page-container">
+        <h1>Hello World Wide Web</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>Page 1</h1>
+        <nav class="sub-nav">
+            <ul class="nav-links">              
+                <li class="nav-item"><a href="#page1-1" class="active">Page 1-1</a></li>
+                <li class="nav-item"><a href="#page1-2">Page 1-2</a></li>
+            </ul>
+        </nav>
+
+        <div id="page1-1" class="sub-page-container">
+            <h2>Page 1 - 1</h2>
+        </div>
+
+        <div id="page1-2" class="sub-page-container" style="f82dabaa2ebf1033428bf0b5e841eed1">
+            <h2>Page 1 - 2</h2>
+        </div>
+    </div>
+
+    <div id="page2" class="page-container">
+        <h1>Page 2</h1>
+    </div>
+
+    <div id="page3" class="page-container">
+        <h1>Page 3</h1>
+    </div>
+    
+
+
+    <script src="1a606c1073155c9f135f542a1c44c524" data-parcel-key="8aab3ecb4753086a6dfd299eed64f5d9">
+    </script>
+</body>
+
+
+</html>

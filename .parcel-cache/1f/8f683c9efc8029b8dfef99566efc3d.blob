@@ -1,0 +1,6 @@
+body {
+        background-image: url('ab7b21571c9bd3072e84648d09e34266');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }

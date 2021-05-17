@@ -1,9 +1,15 @@
 .app-container {
-  background-color: #2b2b2b;
+  background-color: #222;
+  padding-left: 200px;
+}
+
+html {
+  background: url(nature.ff84ca94.jpg) no-repeat center fixed;
+  background-size: cover;
 }
 
 .page-container {
-  margin: 4em;
+  margin: auto;
 }
 
 .page-container#home {
@@ -51,8 +57,7 @@ small, .text_small {
 }
 
 nav {
-  width: 100%;
-  background-color: #3a3a3a;
+  background-color: #1a1a1a;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -61,20 +66,40 @@ nav {
 nav .nav-links {
   list-style: none;
   display: flex;
+  font-weight: bold;
 }
 
 nav .nav-links .nav-item a {
   display: inline-block;
   text-decoration: none;
+  font-family: "Roboto";
   color: white;
-  padding: 1em 2em;
+  padding: 4em 0;
 }
 
 nav .nav-links .nav-item a:hover {
-  color: #abc;
+  color: #a6ffe9;
 }
 
 nav .nav-links .nav-item a.active {
-  font-weight: bold;
+  color: #00ffbf;
+}
+
+nav.vertical {
+  width: 200px;
+  height: 100vh;
+  flex-direction: row;
+  position: absolute;
+  left: 0%;
+  top: 0;
+}
+
+nav.vertical .nav-links {
+  flex-direction: column;
+}
+
+nav.vertical .nav-links .nav-item a {
+  display: block;
+  padding: 4em 0;
 }
 /*# sourceMappingURL=index.0c72b7db.css.map */
