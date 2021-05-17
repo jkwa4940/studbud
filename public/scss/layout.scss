@@ -1,17 +1,18 @@
-.app-container {
-    background-color: #222;
-    padding-left: 200px;
-}
-
 html {
     background: url(../img/nature.jpg) no-repeat center fixed;
     background-size: cover;
 
+}.app-container {
+    background-color: #222;
+    padding-left: 200px;
 }
 
-.page-container {
-    margin: auto;
 
+.page-container {
+    margin-left: 10%;
+    max-width: 80%;
+    height: 90vh;
+    position: relative;
     &#home {
         text-align: center;
     }

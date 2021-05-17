@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="ac2b17b88ef0ab3e3e3316d5a6be3892" rel="stylesheet" type="text/css">
+    <script src="2b00ef2b4a58c2e145114abb87081a61" crossorigin="anonymous"></script>
+</head>
+
+
+<body class="app-container">
+
+    <nav class="vertical">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#logo">StudBud</a></li> 
+            <li class="nav-item"><a href="#home" class="active">HOME</a></li>                   
+            <li class="nav-item"><a href="#page1">TASK LIST</a></li>
+            <li class="nav-item"><a href="#page2">TIMER</a></li>
+            <li class="nav-item"><a href="#page3">DICTIONARY</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page-container">
+        <h1>Welcome!</h1>
+
+        <p>StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>TASK LIST</h1>
+        <form>Task</form>
+    </div>
+
+    <div id="page2" class="page-container">
+        <h1>TIMER</h1>
+        <nav class="sub-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#page2-1" class="active">Stopwatch</a></li>
+                <li class="nav-item"><a href="#page2-2">Pomodoro</a></li>
+            </ul>
+        </nav>
+
+        <div id="page2-1" class="sub-page-container">
+
+        </div>
+
+        <div id="page2-2" class="sub-page-container" style="3daa1634f70773edd0ba49fea5cc5269">
+
+        </div>
+
+    </div>
+
+    <div id="page3" class="page-container">
+        <h1>Page 3</h1>
+    </div>
+    
+
+
+    <script src="4e6340146f7d0152c44dbd6ccf58b0e0" data-parcel-key="b3659426219b21683aaa8cad5e8a6eed">
+    </script>
+</body>
+
+
+</html>

@@ -26,9 +26,9 @@ nav {
 
 nav.vertical {
     width: 200px;
-    height: 100vh;
+    height: 100%;
     flex-direction: row;
-    position: absolute;
+    position: fixed;
     left: 0%;
     top: 0;
     .nav-links {

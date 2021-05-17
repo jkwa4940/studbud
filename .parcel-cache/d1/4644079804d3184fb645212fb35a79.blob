@@ -1,15 +1,18 @@
-.app-container {
-  background-color: #222;
-  padding-left: 200px;
-}
-
 html {
   background: url(b7627e2cd244f2fdae9f05b3af18683b) no-repeat center fixed;
   background-size: cover;
 }
 
+.app-container {
+  background-color: #222;
+  padding-left: 200px;
+}
+
 .page-container {
-  margin: auto;
+  margin-left: 200px;
+  max-width: 400px;
+  height: 90vh;
+  position: relative;
 }
 
 .page-container#home {
@@ -87,9 +90,9 @@ nav .nav-links .nav-item a.active {
 
 nav.vertical {
   width: 200px;
-  height: 100vh;
+  height: 100%;
   flex-direction: row;
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0;
 }

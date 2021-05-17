@@ -1,10 +1,18 @@
+html {
+  background: url(5243e3d23880307cab8f0616ffc0cb00) no-repeat center fixed;
+  background-size: cover;
+}
+
 .app-container {
-  background-image: url(5243e3d23880307cab8f0616ffc0cb00);
+  background-color: #222;
   padding-left: 200px;
 }
 
 .page-container {
-  margin: auto;
+  margin-left: 10%;
+  max-width: 80%;
+  height: 90vh;
+  position: relative;
 }
 
 .page-container#home {
@@ -82,9 +90,9 @@ nav .nav-links .nav-item a.active {
 
 nav.vertical {
   width: 200px;
-  height: 100vh;
+  height: 100%;
   flex-direction: row;
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0;
 }
