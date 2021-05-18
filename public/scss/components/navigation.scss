@@ -3,16 +3,19 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1;
     .nav-links {
         list-style: none;
         display: flex;
         font-weight: bold;
+        margin: 0;
+        padding: 0;
         .nav-item a {
             display: inline-block;
             text-decoration: none;
             font-family: "Roboto";
             color: white;
-            padding: 4em 0;
+            //padding: 4em 0;
             
             &:hover {
                 color: rgb(166, 255, 233);
@@ -27,15 +30,47 @@ nav {
 nav.vertical {
     width: 200px;
     height: 100%;
-    flex-direction: row;
+    //flex-direction: row;
     position: fixed;
     left: 0%;
     top: 0;
+    /**/overflow: auto;
     .nav-links {
         flex-direction: column;
+        /**/display:grid;
         .nav-item a {
-            display: block;
-            padding: 4em 0;
+            display: grid;
+            //padding: 4em 0;
+            /**/padding: 16px;
+            /**/text-decoration: none;
+            
         }
     }
 }
+
+.sub-nav {
+    display: grid;
+    align-items: center;
+    padding: 25px;
+}
+
+/*
+// On screens that are less than 700px wide, make the sidebar into a topbar
+@media screen and (max-width: 700px) {
+    nav.vertical {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .nav-item a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  // On screens that are less than 400px, display the bar vertically, instead of horizontally
+  @media screen and (max-width: 400px) {
+    .nav-item a {
+      text-align: center;
+      float: none;
+    }
+  }
+  */

@@ -29,7 +29,50 @@
 
     <div id="page1" class="page-container">
         <h1>TASK LIST</h1>
-        <form>Task</form>
+        <form id="taskform">
+            <div class="row">
+                <label for="task">Task:</label>
+                <div class="input">
+                    <input type="text" name="task" id="taskInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="dueDate">Due Date: </label>
+                <div class="input"> 
+                    <input type="date" name="date" id="dueDateInput">
+                </div>
+            </div>
+            
+            <div class="row">
+                <label for="completionTime">Completion Time: </label>
+                <div class="input">
+                    <input type="time" name="completionTime" id="completionTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="estimatedTime">Estimated Completion Time (mins):</label>
+                <div class="input">
+                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="priority">Task Priority:</label>
+                <div class="input">
+                    <select name="priority" id="priorityInput">
+                        <option value="">Select an option</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
+        <button type="submit">Submit</button>
+        </form>
+        <ul id="tasklist">
+        </ul>
     </div>
 
     <div id="page2" class="page-container">
@@ -42,11 +85,11 @@
         </nav>
 
         <div id="page2-1" class="sub-page-container">
-
+            <p>This is for the stopwatch page.</p>
         </div>
 
         <div id="page2-2" class="sub-page-container" style="display: none;">
-
+            <p>Text here represents pomodoro page.</p>
         </div>
 
     </div>

@@ -1,18 +1,20 @@
 html {
+    // Photo by Kunal Shinde on Unsplash.
     background: url(../img/nature.jpg) no-repeat center fixed;
     background-size: cover;
 
 }.app-container {
     background-color: #222;
-    padding-left: 200px;
+    margin: 50px 50px 20px 250px;
 }
 
-
 .page-container {
-    margin-left: 10%;
-    max-width: 80%;
-    height: 90vh;
+    padding: 50px;
+    //margin: 5% 0 0 10%;
+    //max-width: 80%;
+    height: 600px;
     position: relative;
+
     &#home {
         text-align: center;
     }
@@ -20,3 +22,9 @@ html {
         display: none;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .left, .main, .right {
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
