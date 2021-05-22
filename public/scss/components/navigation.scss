@@ -7,15 +7,15 @@ nav {
     .nav-links {
         list-style: none;
         display: flex;
-        font-weight: bold;
         margin: 0;
         padding: 0;
         .nav-item a {
             display: inline-block;
             text-decoration: none;
-            font-family: "Roboto";
+            font-family: "Bebas Neue";
             color: white;
-            //padding: 4em 0;
+            font-size: 2.5vw;
+            padding: 0.5em 3em;
             
             &:hover {
                 color: rgb(166, 255, 233);
@@ -34,16 +34,16 @@ nav.vertical {
     position: fixed;
     left: 0%;
     top: 0;
-    /**/overflow: auto;
+    overflow: auto;
     .nav-links {
         flex-direction: column;
-        /**/display:grid;
         .nav-item a {
-            display: grid;
-            //padding: 4em 0;
-            /**/padding: 16px;
-            /**/text-decoration: none;
-            
+            padding: 25px 0 25px 0;
+            text-decoration: none;
+            font-size: 1.5em;
+            i {
+             margin: 0 10px 0 0;
+            }
         }
     }
 }
@@ -54,10 +54,10 @@ nav.vertical {
     padding: 25px;
 }
 
-/*
+
 // On screens that are less than 700px wide, make the sidebar into a topbar
 @media screen and (max-width: 700px) {
-    nav.vertical {
+    nav {
       width: 100%;
       height: auto;
       position: relative;
@@ -66,6 +66,7 @@ nav.vertical {
     div.content {margin-left: 0;}
   }
   
+  /*
   // On screens that are less than 400px, display the bar vertically, instead of horizontally
   @media screen and (max-width: 400px) {
     .nav-item a {
@@ -74,3 +75,4 @@ nav.vertical {
     }
   }
   */
+  

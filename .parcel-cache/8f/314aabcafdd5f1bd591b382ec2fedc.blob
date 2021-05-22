@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="ac2b17b88ef0ab3e3e3316d5a6be3892" rel="stylesheet" type="text/css">
+    <script src="2b00ef2b4a58c2e145114abb87081a61" crossorigin="anonymous"></script>    
+</head>
+
+<nav class="vertical">
+    <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home"></i>HOME</a></li>                   
+        <li class="nav-item"><a href="#page1"><i class="fas fa-list"></i>TASK LIST</a></li>
+        <li class="nav-item"><a href="#page2"><i class="fas fa-stopwatch"></i>TIMER</a></li>
+        <li class="nav-item"><a href="#page3">DICTIONARY</a></li>
+    </ul>
+</nav>
+
+<body class="app-container">
+
+    <div id="home" class="page-container">
+        <h1>Welcome!</h1>
+
+        <p>StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>TASK LIST</h1>
+        <form id="taskform">
+            <div class="row">
+                <label for="task">Task:</label>
+                <div class="input">
+                    <input type="text" name="task" id="taskInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="dueDate">Due Date:</label>
+                <div class="input"> 
+                    <input type="date" name="date" id="dueDateInput">
+                </div>
+            </div>
+            
+            <div class="row">
+                <label for="completionTime">Completion Time:</label>
+                <div class="input">
+                    <input type="time" name="completionTime" id="completionTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="estimatedTime">Estimated Completion Time (mins):</label>
+                <div class="input">
+                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="priority">Task Priority:</label>
+                <div class="input">
+                    <select name="priority" id="priorityInput">
+                        <option value="">Select an option</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
+        <button type="submit">Submit</button>
+        </form>
+        <ul id="tasklist">
+        </ul>
+    </div>
+
+    <div id="page2" class="page-container">
+        <h1>TIMER</h1>
+        <nav class="sub-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#page2-1" class="active">Stopwatch</a></li>
+                <li class="nav-item"><a href="#page2-2">Pomodoro</a></li>
+            </ul>
+        </nav>
+
+        <div id="page2-1" class="sub-page-container">
+            <p>This is for the stopwatch page.</p>
+        </div>
+
+        <div id="page2-2" class="sub-page-container" style="ad11c7a81936d5882e87c88bff511249">
+            <p>Text here represents pomodoro page.</p>
+        </div>
+
+    </div>
+
+    <div id="page3" class="page-container">
+        <h1>Page 3</h1>
+    </div>
+    
+
+
+    <script src="4e6340146f7d0152c44dbd6ccf58b0e0" data-parcel-key="a87cc4be4490f864de75aa8aac8907c0">
+    </script>
+</body>
+
+
+</html>
