@@ -23,11 +23,18 @@ html {
   display: none;
 }
 
+/*
 @media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%;
-    /* The width is 100%, when the viewport is 800px or smaller */
+    .left, .main, .right {
+      width: 100%; // The width is 100%, when the viewport is 800px or smaller
+    }
   }
+*/
+
+.timer-container {
+  background-color: red;
+  height: 50px;
+  width: auto;
 }
 
 p {
@@ -120,8 +127,7 @@ nav.vertical .nav-links {
 }
 
 nav.vertical .nav-links .nav-item a {
-  display: grid;
-  padding: 15px;
+  padding: 25px 0 25px 0;
   text-decoration: none;
   font-size: 1.5em;
 }
@@ -133,11 +139,12 @@ nav.vertical .nav-links .nav-item a i {
 .sub-nav {
   display: grid;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
+  border-radius: 15px 15px 0 0;
 }
 
 @media screen and (max-width: 700px) {
-  nav {
+  nav.vertical {
     width: 100%;
     height: auto;
     position: relative;
@@ -152,12 +159,9 @@ nav.vertical .nav-links .nav-item a i {
   }
 }
 
-/*
-// On screens that are less than 400px, display the bar vertically, instead of horizontally
 @media screen and (max-width: 400px) {
   .nav-item a {
     text-align: center;
     float: none;
   }
 }
-*/

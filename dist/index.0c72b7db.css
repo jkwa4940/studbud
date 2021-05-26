@@ -23,12 +23,20 @@ html {
   display: none;
 }
 
-@media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%;
-    /* The width is 100%, when the viewport is 800px or smaller */
-  }
+.timer-container {
+  background-color: #252525;
+  height: 50vh;
+  width: auto;
+  border-radius: 0 0 25px 25px;
 }
+
+/* don't know what this is
+@media screen and (max-width: 800px) {
+    .left, .main, .right {
+      width: 100%; // The width is 100%, when the viewport is 800px or smaller
+    }
+  }
+*/
 
 p {
   margin-bottom: 1vw;
@@ -132,11 +140,12 @@ nav.vertical .nav-links .nav-item a i {
 .sub-nav {
   display: grid;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
+  border-radius: 15px 15px 0 0;
 }
 
 @media screen and (max-width: 700px) {
-  nav {
+  nav.vertical {
     width: 100%;
     height: auto;
     position: relative;
@@ -151,13 +160,75 @@ nav.vertical .nav-links .nav-item a i {
   }
 }
 
-/*
-// On screens that are less than 400px, display the bar vertically, instead of horizontally
 @media screen and (max-width: 400px) {
   .nav-item a {
     text-align: center;
     float: none;
   }
 }
+
+.stopwatch {
+  display: grid;
+  justify-items: center;
+  grid-row-gap: 23px;
+  width: 100%;
+  padding-top: 25px;
+}
+
+.time {
+  font-family: "Roboto Mono", monospace;
+  color: white;
+  background-color: #4c4c4c;
+  font-weight: 300;
+  font-size: 6vw;
+  padding: 15px 50px 15px 50px;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #00ffbf;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: white;
+  background-color: white;
+}
+
+.stopwatch-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonPlay img {
+  padding: 15px 55px;
+}
+
+.buttonReset img {
+  padding: 15px 55px;
+}
+
+#resetButton {
+  width: 1.5vw;
+  display: block;
+}
+
+#playButton {
+  width: 1.5vw;
+  display: block;
+}
+
+#pauseButton {
+  width: 1.5vw;
+  display: none;
+}
+
+/* Stopwatch
+https://tinloof.com/blog/how-to-build-a-stopwatch-with-html-css-js-react-part-2/
 */
 /*# sourceMappingURL=index.0c72b7db.css.map */

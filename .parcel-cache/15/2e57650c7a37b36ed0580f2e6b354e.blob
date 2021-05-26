@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="3726c2e58e14a34ff58a760d13283737" rel="stylesheet" type="text/css">
+    <link href="0b32bde9aa9b58353838b37863500b57" rel="icon" sizes="any" type="image/svg+xml">
+    <script src="a2b112af220e211b6966ee22328ab77f" crossorigin="anonymous"></script>    
+</head>
+
+<div class="sidebar">
+    <nav class="vertical">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home"></i>HOME</a></li>                   
+            <li class="nav-item"><a href="#page1"><i class="fas fa-list"></i>TASK LIST</a></li>
+            <li class="nav-item"><a href="#page2"><i class="fas fa-stopwatch"></i>TIMER</a></li>
+            <li class="nav-item"><a href="#page3"><i class="fas fa-book"></i>DICTIONARY</a></li>
+        </ul>
+    </nav>
+</div>
+<!--
+<nav class="vertical">
+    <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home"></i>HOME</a></li>                   
+        <li class="nav-item"><a href="#page1"><i class="fas fa-list"></i>TASK LIST</a></li>
+        <li class="nav-item"><a href="#page2"><i class="fas fa-stopwatch"></i>TIMER</a></li>
+        <li class="nav-item"><a href="#page3"><i class="fas fa-book"></i>DICTIONARY</a></li>
+    </ul>
+</nav>
+-->
+
+<body class="app-container">
+
+    <div id="home" class="page-container">
+        <h1>Welcome!</h1>
+
+        <p>StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>TASK LIST</h1>
+        <form id="taskform">
+            <div class="row">
+                <label for="task">Task:</label>
+                <div class="input">
+                    <input type="text" name="task" id="taskInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="dueDate">Due Date:</label>
+                <div class="input"> 
+                    <input type="date" name="date" id="dueDateInput">
+                </div>
+            </div>
+            
+            <div class="row">
+                <label for="completionTime">Completion Time:</label>
+                <div class="input">
+                    <input type="time" name="completionTime" id="completionTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="estimatedTime">Estimated Completion Time (mins):</label>
+                <div class="input">
+                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="priority">Task Priority:</label>
+                <div class="input">
+                    <select name="priority" id="priorityInput">
+                        <option value="">Select an option</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
+        <button type="submit">Submit</button>
+        </form>
+        <ul id="tasklist">
+        </ul>
+    </div>
+
+    <div id="page2" class="page-container">
+        <nav class="sub-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#page2-1" class="active">Stopwatch</a></li>
+                <li class="nav-item"><a href="#page2-2">Pomodoro</a></li>
+            </ul>
+        </nav>
+        
+
+        <div id="page2-1" class="sub-page-container">
+            <div class="timer-container">
+                <div class="stopwatch">
+                    <span class="time-counter">00:00:00</span>
+                    <div class="stopwatch-buttons">
+                        <button class="timer-btn"><i class="fas fa-play"></i></button>
+                        <button class="timer-btn"><i class="fas fa-pause"></i></button>
+                        <button class="timer-btn"><i class="fas fa-undo-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="page2-2" class="sub-page-container" style="6c1b8f8b3c96d93bf6abddb17644ca73">
+            <div class="timer-container">
+            
+            </div>
+        </div>
+
+    </div>
+
+    <div id="page3" class="page-container">
+        <h1>Page 3</h1>
+    </div>
+    
+
+
+    <script src="1a606c1073155c9f135f542a1c44c524"></script>
+</body>
+
+
+</html>

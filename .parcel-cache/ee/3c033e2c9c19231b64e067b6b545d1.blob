@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="/index.HASH_REF_80038805bd6829e42a01d0f20c72b7db.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/1ca5ba8557.js" crossorigin="anonymous"></script>    
+</head>
+
+<div class="sidebar">
+    <nav class="vertical">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home"></i>HOME</a></li>                   
+            <li class="nav-item"><a href="#page1"><i class="fas fa-list"></i>TASK LIST</a></li>
+            <li class="nav-item"><a href="#page2"><i class="fas fa-stopwatch"></i>TIMER</a></li>
+            <li class="nav-item"><a href="#page3"><i class="fas fa-book"></i>DICTIONARY</a></li>
+        </ul>
+    </nav>
+</div>
+<!--
+<nav class="vertical">
+    <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home"></i>HOME</a></li>                   
+        <li class="nav-item"><a href="#page1"><i class="fas fa-list"></i>TASK LIST</a></li>
+        <li class="nav-item"><a href="#page2"><i class="fas fa-stopwatch"></i>TIMER</a></li>
+        <li class="nav-item"><a href="#page3"><i class="fas fa-book"></i>DICTIONARY</a></li>
+    </ul>
+</nav>
+-->
+
+<body class="app-container">
+
+    <div id="home" class="page-container">
+        <h1>Welcome!</h1>
+
+        <p>StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>TASK LIST</h1>
+        <form id="taskform">
+            <div class="row">
+                <label for="task">Task:</label>
+                <div class="input">
+                    <input type="text" name="task" id="taskInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="dueDate">Due Date:</label>
+                <div class="input"> 
+                    <input type="date" name="date" id="dueDateInput">
+                </div>
+            </div>
+            
+            <div class="row">
+                <label for="completionTime">Completion Time:</label>
+                <div class="input">
+                    <input type="time" name="completionTime" id="completionTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="estimatedTime">Estimated Completion Time (mins):</label>
+                <div class="input">
+                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="priority">Task Priority:</label>
+                <div class="input">
+                    <select name="priority" id="priorityInput">
+                        <option value="">Select an option</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
+        <button type="submit">Submit</button>
+        </form>
+        <ul id="tasklist">
+        </ul>
+    </div>
+
+    <div id="page2" class="page-container">
+        <nav class="sub-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#page2-1" class="active">Stopwatch</a></li>
+                <li class="nav-item"><a href="#page2-2">Pomodoro</a></li>
+            </ul>
+        </nav>
+        
+
+        <div id="page2-1" class="sub-page-container">
+            <div class="timer-container">
+                <div class="stopwatch">
+                    <span>00:00:00</span>
+                <div>
+                    <button>
+                        <img src="/play-solid.HASH_REF_94045db8dca3a0c84cf2e488ebc562b7.svg">
+
+                <img src="/pause-solid.HASH_REF_e91ba4c973973e02984fabb22642a312.svg">
+                    </button>
+                
+                <button>
+                        <img src="/undo-alt-solid.HASH_REF_161996b5d980b506efca62be151bb47a.svg">
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="page2-2" class="sub-page-container" style="display: none;
+">
+            <div class="timer-container">
+            
+            </div>
+        </div>
+
+    </div>
+
+    <div id="page3" class="page-container">
+        <h1>Page 3</h1>
+    </div>
+    
+
+
+    <script src="/index.HASH_REF_97912cc17f1f5bdf37964fbc8a5bc16d.js"></script>
+</body>
+
+
+</html>
