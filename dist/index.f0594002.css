@@ -296,10 +296,8 @@ button:hover {
   width: 1rem;
   display: none;
 }
-:root {
-  --pomodoro: hsl(223, 25%, 40%);
-  --shortBreak: hsl(48, 23%, 40%);
-  --longBreak: hsl(105, 16%, 40%);
+.hidden {
+  display: none;
 }
 .form-wrap {
   display: flex;

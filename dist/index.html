@@ -633,7 +633,7 @@ allEle.forEach(function(item, index) {
                             </button>
 
                             <button class="buttonReset">
-                                <img id="resetButton" src="/undo-alt-solid.59ff450f.svg">
+                                <img id="resetButton" src="/stop-solid.c08aaf85.svg">
                             </button>
                         </div>
                     </div>
@@ -644,7 +644,34 @@ allEle.forEach(function(item, index) {
             <div id="page2-2" class="sub-page-container" style="display: none;
 ">
                 <div class="timer-container">
-                
+                    <div id="pomodoro-container">
+                        <div id="pomodoro-clock">
+                            <div id="pomodoro-timer"></div>
+                            <div id="pomodoro-clock-actions">
+                                <button id="pomodoro-start">
+                                    <i class="fas fa-play" id="play-icon"></i>
+                                    <i class="fas fa-pause hidden" id="pause-icon"></i>
+                                  </button>
+                                  <button id="pomodoro-stop" class="hidden">
+                                    <i class="fas fa-stop"></i>
+                                  </button>
+                            </div>
+                            <!-- new -->
+                            <div id="pomodoro-clock-title">
+                                <span>Changes made here will reflect at the start of the next work / break session</span>
+                            </div>
+                            <div id="pomodoro-clock-actions">
+                                <div class="pomodoro-input">
+                                    <label>Work Duration</label>
+                                    <input name="input-work-duration" id="input-work-duration" type="number">
+                                </div>
+                            <div class="pomodoro-input">
+                              <label>Break Duration</label>
+                              <input name="input-break-duration" id="input-break-duration" type="number">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

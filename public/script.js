@@ -177,167 +177,186 @@ resetButton.addEventListener("click", reset);
 
 // TIMER end
 
-/*
+
+
+
 // POMODORO start
-const pomTimer = {
-  pomodoro: 25,
-  shortBreak: 5,
-  longBreak: 15,
-  longBreakInterval: 4,
-  sessions: 0,
-};
 
-let interval;
+const pomodoroTimer = document.querySelector('#pomodoro-timer')
+const pomStart = document.querySelector('#pomodoro-start')
+const pomStop = document.querySelector('#pomodoro-stop')
 
-const buttonSound = new Audio('button-sound.mp3');
-const mainButton = document.getElementById('js-btn');
-mainButton.addEventListener('click', () => {
-  buttonSound.play();
-  const { action } = mainButton.dataset;
-  if (action === 'start') {
-    startTimer();
+
+let type = 'Work'
+let timeSpentInCurrentSession = 0
+let isClockStopped = true
+
+let updatedWorkSessionDuration
+let updatedBreakSessionDuration
+
+let workDurationInput = document.querySelector('#input-work-duration')
+let breakDurationInput = document.querySelector('#input-break-duration')
+
+workDurationInput.value = '25'
+breakDurationInput.value = '5'
+
+const showStopIcon = () => {
+  const stopButton = document.querySelector('#pomodoro-stop')
+  stopButton.classList.remove('hidden')
+}
+
+// Start button
+pomStart.addEventListener('click', () => {
+  toggleClock()
+})
+// Stop button
+pomStop.addEventListener('click', () => {
+  toggleClock(true)
+})
+
+const togglePlayPauseIcon = (reset) => {
+  const playIcon = document.querySelector('#play-icon')
+  const pauseIcon = document.querySelector('#pause-icon')
+  if (reset) {
+    // when resetting -> always revert to play icon
+    if (playIcon.classList.contains('hidden')) {
+      playIcon.classList.remove('hidden')
+    }
+    if (!pauseIcon.classList.contains('hidden')) {
+      pauseIcon.classList.add('hidden')
+    }
   } else {
-    stopTimer();
+    playIcon.classList.toggle('hidden')
+    pauseIcon.classList.toggle('hidden')
   }
-});
-
-const modeButtons = document.querySelector('#js-mode-buttons');
-modeButtons.addEventListener('click', handleMode);
-
-function getRemainingTime(endTime) {
-  const currentTime = Date.parse(new Date());
-  const difference = endTime - currentTime;
-
-  const total = Number.parseInt(difference / 1000, 10);
-  const minutes = Number.parseInt((total / 60) % 60, 10);
-  const seconds = Number.parseInt(total % 60, 10);
-
-  return {
-    total,
-    minutes,
-    seconds,
-  };
 }
 
-function startTimer() {
-  let { total } = pomTimer.remainingTime;
-  const endTime = Date.parse(new Date()) + total * 1000;
+// UPDATE WORK TIME
+workDurationInput.addEventListener('input', () => {
+  updatedWorkSessionDuration = minuteToSeconds(workDurationInput.value)
+})
+// UPDATE PAUSE TIME
+breakDurationInput.addEventListener('input', () => {
+  updatedBreakSessionDuration = minuteToSeconds(breakDurationInput.value)
+})
+const minuteToSeconds = (mins) => {
+  return mins * 60
+}
 
-  if (pomTimer.mode === 'pomodoro') pomTimer.sessions++;
+let isClockRunning = false
 
-  mainButton.dataset.action = 'stop';
-  mainButton.textContent = 'stop';
-  mainButton.classList.add('active');
+// Work and break durations
+let workSessionDuration = 1500
+let currentTimeLeftInSession = 1500
+let breakSessionDuration = 300
 
-  interval = setInterval(function() {
-    pomTimer.remainingTime = getRemainingTime(endTime);
-    updateClock();
-
-    total = pomTimer.remainingTime.total;
-    if (total <= 0) {
-      clearInterval(interval);
-
-      switch (pomTimer.mode) {
-        case 'pomodoro':
-          if (pomTimer.sessions % pomTimer.longBreakInterval === 0) {
-            switchMode('longBreak');
-          } else {
-            switchMode('shortBreak');
-          }
-          break;
-        default:
-          switchMode('pomodoro');
-      }
-
-      if (Notification.permission === 'granted') {
-        const text =
-          pomTimer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-        new Notification(text);
-      }
-
-      document.querySelector(`[data-sound="${pomTimer.mode}"]`).play();
-
-      startTimer();
+const toggleClock = (reset) => {
+  togglePlayPauseIcon(reset);
+  if (reset) {
+    // Stop the timer
+    stopClock()
+  } else {
+    if (isClockStopped) {
+      setUpdatedTimers()
+      isClockStopped = false
     }
-  }, 1000);
+    if (isClockRunning === true) {
+      // Pause the timer
+      clearInterval(clockTimer)
+      isClockRunning = false
+    } else {
+      // Start the timer
+      clockTimer = setInterval(() => {
+        // decrease time left / increase time spent
+        stepDown()
+        displayCurrentTimeLeftInSession()
+      }, 1000)
+      isClockRunning = true
+    }
+    showStopIcon()
+  }
 }
 
-function stopTimer() {
-  clearInterval(interval);
-
-  mainButton.dataset.action = 'start';
-  mainButton.textContent = 'start';
-  mainButton.classList.remove('active');
+const displayCurrentTimeLeftInSession = () => {
+  const secondsLeft = currentTimeLeftInSession
+  let result = ''
+  const seconds = secondsLeft % 60
+  const minutes = parseInt(secondsLeft / 60) % 60
+  let hours = parseInt(secondsLeft / 3600)
+  // add leading zeroes if it's less than 10
+  function addLeadingZeroes(time) {
+    return time < 10 ? `0${time}` : time
+  }
+  if (hours > 0) result += `${hours}:`
+  result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`
+  pomodoroTimer.innerText = result.toString()
 }
 
-function updateClock() {
-  const { remainingTime } = pomTimer;
-  const minutes = `${remainingTime.minutes}`.padStart(2, '0');
-  const seconds = `${remainingTime.seconds}`.padStart(2, '0');
-
-  const min = document.getElementById('js-minutes');
-  const sec = document.getElementById('js-seconds');
-  min.textContent = minutes;
-  sec.textContent = seconds;
-
-  const text =
-    pomTimer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-  document.title = `${minutes}:${seconds} — ${text}`;
-
-  const progress = document.getElementById('js-progress');
-  progress.value = pomTimer[pomTimer.mode] * 60 - pomTimer.remainingTime.total;
+const stopClock = () => {
+  setUpdatedTimers()
+  clearInterval(clockTimer)
+  isClockStopped = true
+  isClockRunning = false
+  // reset the time left in the session to its original state
+  currentTimeLeftInSession = workSessionDuration
+  displayCurrentTimeLeftInSession()
+  type= 'Work'
+  timeSpentInCurrentSession = 0
 }
 
-function switchMode(mode) {
-  pomTimer.mode = mode;
-  pomTimer.remainingTime = {
-    total: pomTimer[mode] * 60,
-    minutes: pomTimer[mode],
-    seconds: 0,
-  };
-
-  document
-    .querySelectorAll('button[data-mode]')
-    .forEach(e => e.classList.remove('active'));
-  document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-  document.body.style.backgroundColor = `var(--${mode})`;
-  document
-    .getElementById('js-progress')
-    .setAttribute('max', pomTimer.remainingTime.total);
-
-  updateClock();
-}
-
-function handleMode(event) {
-  const { mode } = event.target.dataset;
-
-  if (!mode) return;
-
-  switchMode(mode);
-  stopTimer();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  if ('Notification' in window) {
-    if (
-      Notification.permission !== 'granted' &&
-      Notification.permission !== 'denied'
-    ) {
-      Notification.requestPermission().then(function(permission) {
-        if (permission === 'granted') {
-          new Notification(
-            'You will be notified at the start of each session'
-          );
-        }
-      });
+const stepDown = () => {
+  if (currentTimeLeftInSession > 0) {
+    // decrease time left / increase time spent
+    currentTimeLeftInSession--
+    timeSpentInCurrentSession++
+  } else if (currentTimeLeftInSession === 0) {
+    // Timer is over -> if work switch to break, viceversa
+    timeSpentInCurrentSession = 0
+    if (type === 'Work') {
+      currentTimeLeftInSession = breakSessionDuration
+      type = 'Break'
+      setUpdatedTimers();
+    } else {
+      currentTimeLeftInSession = workSessionDuration
+      type = 'Work'
+      setUpdatedTimers();
     }
   }
+  displayCurrentTimeLeftInSession()
+}
 
-  switchMode('pomodoro');
-});
+// Update timer based on user input
+const setUpdatedTimers = () => {
+  if (type === 'Work') {
+    currentTimeLeftInSession = updatedWorkSessionDuration
+      ? updatedWorkSessionDuration
+      : workSessionDuration
+    workSessionDuration = currentTimeLeftInSession
+  } else {
+    currentTimeLeftInSession = updatedBreakSessionDuration
+      ? updatedBreakSessionDuration
+      : breakSessionDuration
+    breakSessionDuration = currentTimeLeftInSession
+  }
+}
 
-*/
+const minutes = parseInt(secondsLeft / 60) % 60
+let hours = parseInt(secondsLeft / 3600)
+
+function addLeadingZeroes(time) {
+  return time < 10 ? `0${time}` : time
+}
+
+if (hours > 0) result += `${hours}:`
+result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`
+
+pomodoroTimer.innerText = result
+
+
+
+
 // POMODORO end
+
 
 // DICTIONARY START
 // https://github.com/patelrohan750/Build-A-Dictionary-app-using-JavaScript/tree/master
