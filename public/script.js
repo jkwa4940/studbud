@@ -31,10 +31,11 @@ subNav.links.forEach((link) => {
 
 
 // TASK LIST start
-//use const as the form will never change. Var also works
+
+// use const as the form will never change. Var also works
 const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button")
-//const button = document.querySelector("form > button")
+// const button = document.querySelector("form > button")
 var taskInput = document.getElementById("taskInput");
 var tasklist = document.getElementById("tasklist");
 var dueDateInput = document.getElementById("dueDateInput");

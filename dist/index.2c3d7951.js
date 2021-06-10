@@ -409,10 +409,10 @@ subNav.links.forEach((link)=>{
 });
 // NAVIGATION END
 // TASK LIST start
-//use const as the form will never change. Var also works
+// use const as the form will never change. Var also works
 const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button");
-//const button = document.querySelector("form > button")
+// const button = document.querySelector("form > button")
 var taskInput = document.getElementById("taskInput");
 var tasklist = document.getElementById("tasklist");
 var dueDateInput = document.getElementById("dueDateInput");
@@ -526,115 +526,166 @@ playButton.addEventListener("click", start);
 pauseButton.addEventListener("click", pause);
 resetButton.addEventListener("click", reset);
 // TIMER end
+/*
 // POMODORO start
 const pomTimer = {
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
-    longBreakInterval: 4,
-    sessions: 0
+  pomodoro: 25,
+  shortBreak: 5,
+  longBreak: 15,
+  longBreakInterval: 4,
+  sessions: 0,
 };
+
 let interval;
+
 const buttonSound = new Audio('button-sound.mp3');
 const mainButton = document.getElementById('js-btn');
-mainButton.addEventListener('click', ()=>{
-    buttonSound.play();
-    const { action  } = mainButton.dataset;
-    if (action === 'start') startTimer();
-    else stopTimer();
+mainButton.addEventListener('click', () => {
+  buttonSound.play();
+  const { action } = mainButton.dataset;
+  if (action === 'start') {
+    startTimer();
+  } else {
+    stopTimer();
+  }
 });
+
 const modeButtons = document.querySelector('#js-mode-buttons');
 modeButtons.addEventListener('click', handleMode);
+
 function getRemainingTime(endTime) {
-    const currentTime = Date.parse(new Date());
-    const difference = endTime - currentTime;
-    const total = Number.parseInt(difference / 1000, 10);
-    const minutes = Number.parseInt(total / 60 % 60, 10);
-    const seconds = Number.parseInt(total % 60, 10);
-    return {
-        total,
-        minutes,
-        seconds
-    };
+  const currentTime = Date.parse(new Date());
+  const difference = endTime - currentTime;
+
+  const total = Number.parseInt(difference / 1000, 10);
+  const minutes = Number.parseInt((total / 60) % 60, 10);
+  const seconds = Number.parseInt(total % 60, 10);
+
+  return {
+    total,
+    minutes,
+    seconds,
+  };
 }
+
 function startTimer() {
-    let { total  } = pomTimer.remainingTime;
-    const endTime = Date.parse(new Date()) + total * 1000;
-    if (pomTimer.mode === 'pomodoro') pomTimer.sessions++;
-    mainButton.dataset.action = 'stop';
-    mainButton.textContent = 'stop';
-    mainButton.classList.add('active');
-    interval = setInterval(function() {
-        pomTimer.remainingTime = getRemainingTime(endTime);
-        updateClock();
-        total = pomTimer.remainingTime.total;
-        if (total <= 0) {
-            clearInterval(interval);
-            switch(pomTimer.mode){
-                case 'pomodoro':
-                    if (pomTimer.sessions % pomTimer.longBreakInterval === 0) switchMode('longBreak');
-                    else switchMode('shortBreak');
-                    break;
-                default:
-                    switchMode('pomodoro');
-            }
-            if (Notification.permission === 'granted') {
-                const text = pomTimer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-                new Notification(text);
-            }
-            document.querySelector(`[data-sound="${pomTimer.mode}"]`).play();
-            startTimer();
-        }
-    }, 1000);
-}
-function stopTimer() {
-    clearInterval(interval);
-    mainButton.dataset.action = 'start';
-    mainButton.textContent = 'start';
-    mainButton.classList.remove('active');
-}
-function updateClock() {
-    const { remainingTime  } = pomTimer;
-    const minutes = `${remainingTime.minutes}`.padStart(2, '0');
-    const seconds = `${remainingTime.seconds}`.padStart(2, '0');
-    const min = document.getElementById('js-minutes');
-    const sec = document.getElementById('js-seconds');
-    min.textContent = minutes;
-    sec.textContent = seconds;
-    const text = pomTimer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-    document.title = `${minutes}:${seconds} — ${text}`;
-    const progress = document.getElementById('js-progress');
-    progress.value = pomTimer[pomTimer.mode] * 60 - pomTimer.remainingTime.total;
-}
-function switchMode(mode) {
-    pomTimer.mode = mode;
-    pomTimer.remainingTime = {
-        total: pomTimer[mode] * 60,
-        minutes: pomTimer[mode],
-        seconds: 0
-    };
-    document.querySelectorAll('button[data-mode]').forEach((e)=>e.classList.remove('active')
-    );
-    document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-    document.body.style.backgroundColor = `var(--${mode})`;
-    document.getElementById('js-progress').setAttribute('max', pomTimer.remainingTime.total);
+  let { total } = pomTimer.remainingTime;
+  const endTime = Date.parse(new Date()) + total * 1000;
+
+  if (pomTimer.mode === 'pomodoro') pomTimer.sessions++;
+
+  mainButton.dataset.action = 'stop';
+  mainButton.textContent = 'stop';
+  mainButton.classList.add('active');
+
+  interval = setInterval(function() {
+    pomTimer.remainingTime = getRemainingTime(endTime);
     updateClock();
-}
-function handleMode(event) {
-    const { mode  } = event.target.dataset;
-    if (!mode) return;
-    switchMode(mode);
-    stopTimer();
-}
-document.addEventListener('DOMContentLoaded', ()=>{
-    if ('Notification' in window) {
-        if (Notification.permission !== 'granted' && Notification.permission !== 'denied') Notification.requestPermission().then(function(permission) {
-            if (permission === 'granted') new Notification('You will be notified at the start of each session');
-        });
+
+    total = pomTimer.remainingTime.total;
+    if (total <= 0) {
+      clearInterval(interval);
+
+      switch (pomTimer.mode) {
+        case 'pomodoro':
+          if (pomTimer.sessions % pomTimer.longBreakInterval === 0) {
+            switchMode('longBreak');
+          } else {
+            switchMode('shortBreak');
+          }
+          break;
+        default:
+          switchMode('pomodoro');
+      }
+
+      if (Notification.permission === 'granted') {
+        const text =
+          pomTimer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+        new Notification(text);
+      }
+
+      document.querySelector(`[data-sound="${pomTimer.mode}"]`).play();
+
+      startTimer();
     }
-    switchMode('pomodoro');
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(interval);
+
+  mainButton.dataset.action = 'start';
+  mainButton.textContent = 'start';
+  mainButton.classList.remove('active');
+}
+
+function updateClock() {
+  const { remainingTime } = pomTimer;
+  const minutes = `${remainingTime.minutes}`.padStart(2, '0');
+  const seconds = `${remainingTime.seconds}`.padStart(2, '0');
+
+  const min = document.getElementById('js-minutes');
+  const sec = document.getElementById('js-seconds');
+  min.textContent = minutes;
+  sec.textContent = seconds;
+
+  const text =
+    pomTimer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+  document.title = `${minutes}:${seconds} — ${text}`;
+
+  const progress = document.getElementById('js-progress');
+  progress.value = pomTimer[pomTimer.mode] * 60 - pomTimer.remainingTime.total;
+}
+
+function switchMode(mode) {
+  pomTimer.mode = mode;
+  pomTimer.remainingTime = {
+    total: pomTimer[mode] * 60,
+    minutes: pomTimer[mode],
+    seconds: 0,
+  };
+
+  document
+    .querySelectorAll('button[data-mode]')
+    .forEach(e => e.classList.remove('active'));
+  document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+  document.body.style.backgroundColor = `var(--${mode})`;
+  document
+    .getElementById('js-progress')
+    .setAttribute('max', pomTimer.remainingTime.total);
+
+  updateClock();
+}
+
+function handleMode(event) {
+  const { mode } = event.target.dataset;
+
+  if (!mode) return;
+
+  switchMode(mode);
+  stopTimer();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if ('Notification' in window) {
+    if (
+      Notification.permission !== 'granted' &&
+      Notification.permission !== 'denied'
+    ) {
+      Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+          new Notification(
+            'You will be notified at the start of each session'
+          );
+        }
+      });
+    }
+  }
+
+  switchMode('pomodoro');
 });
-// POMODORO end
+
+*/ // POMODORO end
 // DICTIONARY START
 // https://github.com/patelrohan750/Build-A-Dictionary-app-using-JavaScript/tree/master
 let input = document.querySelector('#input');
@@ -692,7 +743,7 @@ async function getData(word) {
     // Sound
     const soundName = data[0].hwi.prs[0].sound.audio;
     if (soundName) renderSound(soundName);
-// console.log(data);
+    console.log(data);
 }
 function renderSound(soundName) {
     // https://media.merriam-webster.com/soundc11
