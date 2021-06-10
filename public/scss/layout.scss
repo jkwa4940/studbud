@@ -2,34 +2,31 @@ html {
     // Photo by Kunal Shinde on Unsplash.
     background: url(../img/nature.jpg) no-repeat center fixed;
     background-size: cover;
-
-}.app-container {
-    background-color: #222;
-    margin: 50px 50px 20px 250px;
-    border-radius: 25px;
 }
 
 .page-container {
+    background-color: #232323;
     padding: 50px;
+    border-radius: 15px;
+    margin: 50px 50px 20px 250px;
     //margin: 5% 0 0 10%;
-    //max-width: 80%;
     height: 600px;
     position: relative;
+    box-shadow: 0 0 75px black;
+}
 
-    &#home {
-        text-align: center;
-    }
-    &:not(#home) {
-        display: none;
+.task-container {
+    background-color: #353535;
+    border-radius: 10px;
+    padding: 10px 25px 25px 25px;
+}
+
+@media only screen and (max-width: 800px) {
+    .page-container {
+        margin: 20px;
     }
 }
 
-.timer-container {
-    background-color: rgb(37, 37, 37);
-    height: 50vh;
-    width: auto;
-    border-radius: 0 0 25px 25px;
-}
 
 /* don't know what this is
 @media screen and (max-width: 800px) {

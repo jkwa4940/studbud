@@ -2,10 +2,11 @@ nav {
     background-color: rgb(26, 26, 26);
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    z-index: 1;
+    list-style: none;
+    //align-items: center;
     .nav-links {
         list-style: none;
+        text-decoration: none;
         display: flex;
         margin: 0;
         padding: 0;
@@ -14,7 +15,7 @@ nav {
             text-decoration: none;
             font-family: "Bebas Neue";
             color: white;
-            font-size: 2.5vw;
+            font-size: 1.5rem;
             padding: 0.5em 3em;
             
             &:hover {
@@ -25,6 +26,10 @@ nav {
             }
         }
     }
+}
+
+.nav-logo {
+    padding: 25px 0 50px;
 }
 
 nav.vertical {
@@ -57,23 +62,32 @@ nav.vertical {
 
 
 // On screens that are less than 700px wide, make the sidebar into a topbar
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     nav.vertical {
-      width: 100%;
-      height: auto;
-      position: relative;
+        width: 75px
     }
     .nav-item a {float: left;}
     div.content {margin-left: 0;}
-  }
-  
+}
+
+
+// On screens that are less than 700px wide, make the sidebar into a topbar
+@media only screen and (max-width: 800px) {
+    nav.vertical {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .nav-item a {float: left;}
+    div.content {margin-left: 0;}
+}
+
   
   // On screens that are less than 400px, display the bar vertically, instead of horizontally
-  @media screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     .nav-item a {
       text-align: center;
       float: none;
     }
-  }
-  
+}
   

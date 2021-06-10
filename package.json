@@ -25,12 +25,15 @@
   },
   "homepage": "https://github.com/jkwa4940/studbud#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-beta.2",
-    "autoprefixer": "^10.2.5",
-    "parcel": "^2.0.0-beta.2",
-    "postcss": "^8.2.15"
+    "@parcel/transformer-sass": "^2.0.0-nightly.713",
+    "autoprefixer": "^10.2.6",
+    "parcel": "^2.0.0-nightly.711",
+    "postcss": "^8.3.0"
   },
   "dependencies": {
-    "sass": "^1.32.13"
+    "axios": "^0.21.1",
+    "netlify-lambda": "^2.0.8",
+    "owlbot-js": "^2.0.2",
+    "sass": "^1.34.1"
   }
 }

@@ -1,9 +1,13 @@
 @import 'reset';
 @import 'layout';
 @import 'typography';
+
 @import 'components/navigation';
+
+@import 'components/kanban.scss';
 @import 'components/stopwatch.scss';
 @import 'components/pomodoro.scss';
+@import 'components/dictionary.scss';
 
 // icons retrieved from FontAwesome
 

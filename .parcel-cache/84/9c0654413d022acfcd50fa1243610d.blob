@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudBud</title>
+    <link href="ac2b17b88ef0ab3e3e3316d5a6be3892" rel="stylesheet" type="text/css">
+    <link href="22daf3887175f7b696f117d4a6e116cb" rel="icon" sizes="any" type="image/svg+xml">
+    <script src="2b00ef2b4a58c2e145114abb87081a61" crossorigin="anonymous"></script>    
+</head>
+
+<div class="sidebar">
+    <nav class="vertical">
+        <ul class="nav-links">
+            <li class="nav-logo"><a href="#home"><img src="be3b0534690ed9c7425ece1e643d8998" alt="StudBud logo" width="125px" height="auto"></a></li>
+            <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home"></i>HOME</a></li>                   
+            <li class="nav-item"><a href="#page1"><i class="fas fa-list"></i>TASK LIST</a></li>
+            <li class="nav-item"><a href="#page2"><i class="fas fa-stopwatch"></i>TIMER</a></li>
+            <li class="nav-item"><a href="#" id="modalBtn"><i class="fas fa-book"></i>DICTIONARY</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<body class="app-container">
+
+    <div id="home" class="page-container">
+        <h1>Welcome!</h1>
+
+        <p>StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
+    </div>
+
+    <div id="page1" class="page-container">
+        <h1>TASK LIST</h1>
+        <form id="taskform">
+            <div class="row">
+                <label for="task">Task:</label>
+                <div class="input">
+                    <input type="text" name="task" id="taskInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="dueDate">Due Date:</label>
+                <div class="input"> 
+                    <input type="date" name="date" id="dueDateInput">
+                </div>
+            </div>
+            
+            <div class="row">
+                <label for="completionTime">Completion Time:</label>
+                <div class="input">
+                    <input type="time" name="completionTime" id="completionTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="estimatedTime">Estimated Completion Time (mins):</label>
+                <div class="input">
+                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="priority">Task Priority:</label>
+                <div class="input">
+                    <select name="priority" id="priorityInput">
+                        <option value="">Select an option</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
+        <button type="submit">Submit</button>
+        </form>
+        <ul id="tasklist">
+        </ul>
+    </div>
+
+    <div id="page2" class="page-container">
+        <nav class="sub-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#page2-1" class="active">Stopwatch</a></li>
+                <li class="nav-item"><a href="#page2-2">Pomodoro</a></li>
+            </ul>
+        </nav>
+        
+
+        <div id="page2-1" class="sub-page-container">
+            <div class="timer-container">
+                <div class="stopwatch">
+                    <span class="time" id="display">00:00:00:00</span>
+                    <div class="stopwatch-buttons">
+                        <button class="buttonPlay">
+                            <img id="playButton" src="8d492c9c19bae28019c77734b251375d">
+                            
+                            <img id="pauseButton" src="f172e77b3ba2471a7154e9b7bfee2b4b">
+                        </button>
+
+                        <button class="buttonReset">
+                            <img id="resetButton" src="c44ad40306026d261e860015475ab591">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="page2-2" class="sub-page-container" style="6b6e4d5a0f6083e3d94d5918e7920ed5">
+            <div class="timer-container">
+            
+            </div>
+        </div>
+
+    </div>
+
+    <div id="#" class="modal">
+        <div class="modalContent">
+            <span class="close">&times;</span>
+            <p>Sample text</p>
+        </div>
+    </div>
+    
+
+
+    <script src="4e6340146f7d0152c44dbd6ccf58b0e0"></script>
+</body>
+
+
+</html>
