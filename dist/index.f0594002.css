@@ -102,6 +102,12 @@ p {
   font-family: "Roboto";
   font-size: 1rem;
 }
+p.inputWord {
+  color: #00ffbf;
+  font-size: 3em;
+  text-transform: lowercase;
+  margin: 20px;
+}
 h1, h2, h3, h4, h5 {
   font-family: "Roboto";
   font-weight: 700;
@@ -423,6 +429,7 @@ input {
   font-size: 16px;
   width: 35vw;
   outline: none;
+  border-radius: 5px;
 }
 button {
   background: #00ffbf;
