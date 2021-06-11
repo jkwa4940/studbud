@@ -476,26 +476,22 @@ function renderTask(task) {
     form.reset();
 }
 // MODAL
-// Get the modal
+// Source: https://www.w3schools.com/howto/howto_css_modals.asp
 var modal = document.getElementById("myModal");
-// Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-// When the user clicks the button, open the modal 
 btn.onclick = function() {
     modal.style.display = "block";
 };
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
 };
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) modal.style.display = "none";
 };
 // TASK LIST end
 // TIMER start
+// Source: https://tinloof.com/blog/how-to-build-a-stopwatch-with-html-css-js-react-part-2/
 // Convert time to a format of hours, minutes, seconds, and milliseconds
 function timeToString(time) {
     let diffInHrs = time / 3600000;
@@ -555,7 +551,7 @@ pauseButton.addEventListener("click", pause);
 resetButton.addEventListener("click", reset);
 // TIMER end
 // POMODORO start
-// https://inspiredwebdev.com/create-pomodoro-clock/
+// Source https://inspiredwebdev.com/create-pomodoro-clock/
 const pomStart = document.querySelector('#pomodoro-start');
 const pomStop = document.querySelector('#pomodoro-stop');
 let type = 'Work';
@@ -587,7 +583,7 @@ const togglePlayPauseIcon = (reset1)=>{
     const playIcon = document.querySelector('#play-icon');
     const pauseIcon = document.querySelector('#pause-icon');
     if (reset1) {
-        // when resetting -> always revert to play icon
+        // When resetting revert to play icon
         if (playIcon.classList.contains('hidden')) playIcon.classList.remove('hidden');
         if (!pauseIcon.classList.contains('hidden')) pauseIcon.classList.add('hidden');
     } else {
@@ -603,11 +599,11 @@ pomStart.addEventListener('click', ()=>{
 pomStop.addEventListener('click', ()=>{
     toggleClock(true);
 });
-// UPDATE WORK TIME
+// Update Work time
 workDurationInput.addEventListener('input', ()=>{
     updatedWorkSessionDuration = minuteToSeconds(workDurationInput.value);
 });
-// UPDATE PAUSE TIME
+// Update Pause time
 breakDurationInput.addEventListener('input', ()=>{
     updatedBreakSessionDuration = minuteToSeconds(breakDurationInput.value);
 });
@@ -635,7 +631,7 @@ const toggleClock = (reset1)=>{
         } else {
             // Start the timer
             clockTimer = setInterval(()=>{
-                // decrease time left / increase time spent
+                // Decrease time left and increase time spent
                 stepDown();
                 displayCurrentTimeLeftInSession();
                 progressBar.set(calculateSessionProgress());
@@ -651,7 +647,7 @@ const displayCurrentTimeLeftInSession = ()=>{
     const seconds = secondsLeft % 60;
     const minutes = parseInt(secondsLeft / 60) % 60;
     let hours = parseInt(secondsLeft / 3600);
-    // add leading zeroes if it's less than 10
+    // Add leading zeroes if it's less than 10
     function addLeadingZeroes(time) {
         return time < 10 ? `0${time}` : time;
     }
@@ -664,7 +660,7 @@ const stopClock = ()=>{
     clearInterval(clockTimer);
     isClockStopped = true;
     isClockRunning = false;
-    // reset the time left in the session to its original state
+    // Reset the time left in the session to its original state
     currentTimeLeftInSession = workSessionDuration;
     displayCurrentTimeLeftInSession();
     type = 'Work';
@@ -672,11 +668,11 @@ const stopClock = ()=>{
 };
 const stepDown = ()=>{
     if (currentTimeLeftInSession > 0) {
-        // decrease time left / increase time spent
+        // Decrease time left and increase the time spent
         currentTimeLeftInSession--;
         timeSpentInCurrentSession++;
     } else if (currentTimeLeftInSession === 0) {
-        // Timer is over -> if work switch to break, viceversa
+        // When timer is over, switch to break from work and viceversa
         timeSpentInCurrentSession = 0;
         if (type === 'Work') {
             currentTimeLeftInSession = breakSessionDuration;
@@ -707,25 +703,24 @@ const calculateSessionProgress = ()=>{
 };
 // POMODORO end
 // DICTIONARY START
-// https://github.com/patelrohan750/Build-A-Dictionary-app-using-JavaScript/tree/master
+// Source: https://github.com/patelrohan750/Build-A-Dictionary-app-using-JavaScript/tree/master
 let input = document.querySelector('#input');
 let searchBtn = document.querySelector('#search');
 let apiKey = 'b3459c2f-974e-4b4d-b275-980057d4041a';
 let notFound = document.querySelector('.not__found');
 let wordBox = document.querySelector('.inputWord');
 let defBox = document.querySelector('.def');
-//let synsBox = document.querySelector('.syns');
 let audioBox = document.querySelector('.audio');
 let loading = document.querySelector('.loading');
 searchBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    // clear data
+    // Clear data
     audioBox.innerHTML = '';
     notFound.innerText = '';
     defBox.innerText = '';
     // Get input data
     let word = input.value;
-    // call API get data
+    // Call API get data
     if (word === '') {
         alert('Word is required');
         return;
@@ -738,13 +733,13 @@ async function getData(word) {
     const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${apiKey}`);
     const data = await response.json();
     console.log(data);
-    // empty result providing error message
+    // Empty result providing error message
     if (!data.length) {
         loading.style.display = 'none';
         notFound.innerText = ' No result found';
         return;
     }
-    // when the word is misspelt, offer suggestions
+    // When the word is misspelt, offer suggestions
     if (typeof data[0] === 'string') {
         loading.style.display = 'none';
         let heading = document.createElement('h3');
@@ -761,16 +756,14 @@ async function getData(word) {
     // When the result is found
     loading.style.display = 'none';
     let definition = data[0].shortdef[0];
-    //let synonym = data.syns;
     wordBox.innerText = word;
     defBox.innerText = definition;
-    //synsBox.innerText = synonym;
     // Sound 
     const soundName = data[0].hwi.prs[0].sound.audio;
     if (soundName) renderSound(soundName);
 // console.log(data);
 }
-/*
+/* attempted to fetch synonyms 
 async function getData(word) {
   loading.style.display = 'block';
   // Ajax call
@@ -804,7 +797,7 @@ async function getData(word) {
 
 }
 */ function renderSound(soundName) {
-    // https://media.merriam-webster.com/soundc11
+    // Source: https://media.merriam-webster.com/soundc11 
     let subfolder = soundName.charAt(0);
     let soundSrc = `https://media.merriam-webster.com/soundc11/${subfolder}/${soundName}.wav?key=${apiKey}`;
     let aud = document.createElement('audio');

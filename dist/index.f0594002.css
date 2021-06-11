@@ -212,7 +212,6 @@ nav.vertical .nav-links .nav-item a i {
     display: grid;
   }
 }
-/* The Modal (background) */
 .modal {
   display: none;
   position: fixed;
@@ -224,7 +223,6 @@ nav.vertical .nav-links .nav-item a i {
   height: 100%;
   overflow: auto;
 }
-/* Modal Content */
 .modal-content {
   position: relative;
   background-color: #222;
@@ -237,7 +235,6 @@ nav.vertical .nav-links .nav-item a i {
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
-/* Add Animation */
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -258,7 +255,6 @@ nav.vertical .nav-links .nav-item a i {
     opacity: 1;
   }
 }
-/* The Close Button */
 .close {
   margin: 0 0 0 0;
   font-size: 28px;
