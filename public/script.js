@@ -222,7 +222,7 @@ resetButton.addEventListener("click", reset);
 // POMODORO start
 // https://inspiredwebdev.com/create-pomodoro-clock/
 
-const pomodoroTimer = document.querySelector('#pomodoro-timer')
+
 const pomStart = document.querySelector('#pomodoro-start')
 const pomStop = document.querySelector('#pomodoro-stop')
 
@@ -238,16 +238,20 @@ let breakDurationInput = document.querySelector('#input-break-duration')
 
 workDurationInput.value = '25'
 breakDurationInput.value = '5'
-/*
+
 var ProgressBar = require('progressbar.js')
 const progressBar = new ProgressBar.Circle('#pomodoro-timer', {
-  strokeWidth: 2,
+  strokeWidth: 5,
+  color: "#00ffbf",
   text: {
     value: '25:00',
   },
-  trailColor: '#f4f4f4',
+  trailColor: 'white',
+  svgStyle: {
+    width: "25%"
+  }
 })
-*/
+
 
 const showStopIcon = () => {
   const stopButton = document.querySelector('#pomodoro-stop')
@@ -321,6 +325,7 @@ const toggleClock = (reset) => {
         // decrease time left / increase time spent
         stepDown()
         displayCurrentTimeLeftInSession()
+        progressBar.set(calculateSessionProgress())
       }, 1000)
       isClockRunning = true
     }
@@ -341,7 +346,7 @@ const displayCurrentTimeLeftInSession = () => {
   }
   if (hours > 0) result += `${hours}:`
   result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`
-  pomodoroTimer.innerText = result.toString()
+  progressBar.text.innerText = result.toString()
 }
 
 
@@ -393,6 +398,12 @@ const setUpdatedTimers = () => {
   }
 }
 
+const calculateSessionProgress = () => {
+  // calculate the completion rate of this session
+  const sessionDuration =
+    type === 'Work' ? workSessionDuration : breakSessionDuration
+  return (timeSpentInCurrentSession / sessionDuration) * 10
+}
 
 // POMODORO end
 

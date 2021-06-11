@@ -414,6 +414,16 @@ button:hover {
 .hidden {
   display: none;
 }
+.pomodoro-timer {
+  font-size: 3rem;
+}
+.pomodoro-container {
+  text-align: center;
+}
+div.progressbar-text {
+  font-size: 3rem;
+  color: white;
+}
 .form-wrap {
   display: flex;
   justify-content: center;
