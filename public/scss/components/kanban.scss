@@ -5,23 +5,23 @@
     display: block
 }
 
-  .info {
+  .board1 {
     background: #8b4cff;
     border-radius: 10px 10px 0 0;
   }
 
-  .warning {
+  .board2 {
     background: #277eff;
     border-radius: 10px 10px 0 0;
   }
 
-  .success {
+  .board3 {
     background: #80dbff;
     border-radius: 10px 10px 0 0;
   }
 
-  .error {
-    background: #fb7d44;
+  .boardCustom {
+    background: #00ffbf;
     border-radius: 10px 10px 0 0;
   }
 
@@ -37,6 +37,10 @@
     font-size: 16px;
     border-radius: 30px
   }      
+
+.progressBar {
+  
+}
 
 @media only screen and (max-width: 800px) {
   #myKanban {

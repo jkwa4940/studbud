@@ -29,53 +29,70 @@
 <body class="app-container">
 
     <div id="home" class="page-container">
-        <h1>Welcome!</h1>
-        <p>StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
-
         <div id="task-container" class="task-container">
             <h1>Task List</h1>
-            <form id="taskform">
-                <div class="row">
-                    <label for="task">Task:</label>
-                    <div class="input">
-                        <input type="text" name="task" id="taskInput">
-                    </div>
-                </div>
+            <p>StudBud is your personalised study app dedicated to helping you manage your schedule. Your added tasks will appear in your Task List and Kanban Board!
+            </p>
+                <!-- Trigger/Open The Modal -->
+                <button id="myBtn">+ Add Task</button>
 
-                <div class="row">
-                    <label for="dueDate">Due Date:</label>
-                    <div class="input"> 
-                        <input type="date" name="date" id="dueDateInput">
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <label for="completionTime">Completion Time:</label>
-                    <div class="input">
-                        <input type="time" name="completionTime" id="completionTimeInput">
-                    </div>
-                </div>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
 
-                <div class="row">
-                    <label for="estimatedTime">Estimated Completion Time (mins):</label>
-                    <div class="input">
-                        <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h2 id="modalHeader">Modal Header</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form id="taskform">
+                            <div class="row">
+                                <label for="task">Task:</label>
+                                <div class="input">
+                                    <input type="text" name="task" id="taskInput">
+                                </div>
+                            </div>
+            
+                            <div class="row">
+                                <label for="dueDate">Due Date:</label>
+                                <div class="input"> 
+                                    <input type="date" name="date" id="dueDateInput">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <label for="completionTime">Completion Time:</label>
+                                <div class="input">
+                                    <input type="time" name="completionTime" id="completionTimeInput">
+                                </div>
+                            </div>
+            
+                            <div class="row">
+                                <label for="estimatedTime">Estimated Completion Time (mins):</label>
+                                <div class="input">
+                                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                                </div>
+                            </div>
+            
+                            <div class="row">
+                                <label for="priority">Task Priority:</label>
+                                <div class="input">
+                                    <select name="priority" id="priorityInput">
+                                        <option value="">Select an option</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        <button id="addToDo" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="close">Done</button>
                     </div>
                 </div>
-
-                <div class="row">
-                    <label for="priority">Task Priority:</label>
-                    <div class="input">
-                        <select name="priority" id="priorityInput">
-                            <option value="">Select an option</option>
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
-                    </div>
                 </div>
-            <button type="submit">Submit</button>
-            </form>
             <ul id="tasklist">
             </ul>
         </div>
@@ -84,15 +101,15 @@
     <div id="page1" class="page-container">
         <div id="task-container" class="task-container">
             <h1>Kanban Board</h1>
-            <div id="myKanban"></div>
-            <button id="addDefault">Add board</button>
+            <button id="addDefault" class="custom-button">Add board</button>
             <br />
-            <button id="addToDo">Add element in "To Do" Board</button>
+            <button id="addToDo" class="custom-button">Add element in "To Do" Board</button>
             <br />
-            <button id="removeBoard">Remove "Done" Board</button>
+            <button id="removeBoard" class="custom-button">Remove "Done" Board</button>
             <br />
-            <button id="removeElement">Remove "My Task Test"</button>
+            <button id="removeElement" class="custom-button">Remove "My Task Test"</button>
             <script src="../jkanban/dist/jkanban.js"></script>
+            <div id="myKanban"></div>
             <script>
                 var KanbanTest = new jKanban({
                         element: "#myKanban",
@@ -143,42 +160,17 @@
                         {
                             id: "_todo",
                             title: "To Do",
-                            class: "info,good",
-                            item: [
-                            {
-                                id: "_test_delete",
-                                title: "Try drag this (Look the console)",
-                                drag: function(el, source) {
-                                console.log("START DRAG: " + el.dataset.eid);
-                                },
-                                dragend: function(el) {
-                                console.log("END DRAG: " + el.dataset.eid);
-                                },
-                                drop: function(el) {
-                                console.log("DROPPED: " + el.dataset.eid);
-                                }
-                            },
-                            {
-                                title: "Try Click This!",
-                                click: function(el) {
-                                alert("click");
-                                },
-                                context: function(el, e){
-                                alert("right-click at (" + `${e.pageX}` + "," + `${e.pageX}` + ")")
-                                },
-                                class: ["peppe", "bello"]
-                            }
-                            ]
+                            class: "board1",
                         },
                         {
                             id: "_working",
                             title: "Doing",
-                            class: "warning",
+                            class: "board2",
                         },
                         {
                             id: "_done",
                             title: "Done",
-                            class: "success",
+                            class: "board3",
                         }
                         ]
                     });
@@ -186,7 +178,7 @@
                     var toDoButton = document.getElementById("addToDo");
                     toDoButton.addEventListener("click", function() {
                         KanbanTest.addElement("_todo", {
-                        title: "Test Add"
+                        title: taskInput.value
                         });
                     });
 
@@ -195,18 +187,8 @@
                         KanbanTest.addBoards([
                         {
                             id: "_default",
-                            title: "Kanban Default",
-                            item: [
-                            {
-                                title: "Default Item"
-                            },
-                            {
-                                title: "Default Item 2"
-                            },
-                            {
-                                title: "Default Item 3"
-                            }
-                            ]
+                            title: "Custom",
+                            class: "boardCustom",
                         }
                         ]);
                     });
@@ -314,9 +296,10 @@
         </div>
     </div>
 
-
-    <script src="script.js"></script>
+    <div class="footer">
+        <iframe src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>    <script src="script.js"></script>
 </body>
+
 
 
 </html>

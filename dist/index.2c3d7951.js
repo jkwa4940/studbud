@@ -438,9 +438,7 @@ function addTask(taskDescription, dueDate, estimatedTime, priorityRating, comple
     let task = {
         taskDescription,
         dueDate,
-        dateCreated,
         estimatedTime,
-        completionTime,
         priorityRating,
         completionStatus
     };
@@ -451,14 +449,20 @@ function addTask(taskDescription, dueDate, estimatedTime, priorityRating, comple
 function renderTask(task) {
     // Create HTML elements
     let item = document.createElement("li");
-    item.innerHTML = "<p>" + task.taskDescription + "</p>";
+    item.innerHTML = "<p>" + task.taskDescription + "</p>" + "<p>" + task.dueDate + "</p>" + "<p>" + task.estimatedTime + "</p>" + "<p>" + task.priorityRating + "</p>" + "<p>" + task.completionStatus + "</p>";
     tasklist.appendChild(item);
     // Extra Task DOM elements
     let delButton = document.createElement("button");
     let delButtonText = document.createTextNode("Delete Task");
     delButton.appendChild(delButtonText);
     item.appendChild(delButton);
-    // Event Listeners for DOM elements
+    /*
+  // Complete button
+  var complBtn = document.createElement("button");
+  newTask.appendChild(complBtn);
+  complBtn.innerHTML = "Complete";
+  complBtn.classList.add("complete");
+  */ // Event Listeners for DOM elements
     delButton.addEventListener("click", function(event) {
         event.preventDefault();
         item.remove();
@@ -466,6 +470,25 @@ function renderTask(task) {
     // Clear the input form 
     form.reset();
 }
+// MODAL
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+};
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+};
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) modal.style.display = "none";
+};
 // TASK LIST end
 // TIMER start
 // Convert time to a format of hours, minutes, seconds, and milliseconds
@@ -527,6 +550,7 @@ pauseButton.addEventListener("click", pause);
 resetButton.addEventListener("click", reset);
 // TIMER end
 // POMODORO start
+// https://inspiredwebdev.com/create-pomodoro-clock/
 const pomodoroTimer = document.querySelector('#pomodoro-timer');
 const pomStart = document.querySelector('#pomodoro-start');
 const pomStop = document.querySelector('#pomodoro-stop');
@@ -543,14 +567,6 @@ const showStopIcon = ()=>{
     const stopButton = document.querySelector('#pomodoro-stop');
     stopButton.classList.remove('hidden');
 };
-// Start button
-pomStart.addEventListener('click', ()=>{
-    toggleClock();
-});
-// Stop button
-pomStop.addEventListener('click', ()=>{
-    toggleClock(true);
-});
 const togglePlayPauseIcon = (reset1)=>{
     const playIcon = document.querySelector('#play-icon');
     const pauseIcon = document.querySelector('#pause-icon');
@@ -563,6 +579,14 @@ const togglePlayPauseIcon = (reset1)=>{
         pauseIcon.classList.toggle('hidden');
     }
 };
+// Start button
+pomStart.addEventListener('click', ()=>{
+    toggleClock();
+});
+// Stop button
+pomStop.addEventListener('click', ()=>{
+    toggleClock(true);
+});
 // UPDATE WORK TIME
 workDurationInput.addEventListener('input', ()=>{
     updatedWorkSessionDuration = minuteToSeconds(workDurationInput.value);
@@ -659,14 +683,6 @@ const setUpdatedTimers = ()=>{
         breakSessionDuration = currentTimeLeftInSession;
     }
 };
-const minutes = parseInt(secondsLeft / 60) % 60;
-let hours = parseInt(secondsLeft / 3600);
-function addLeadingZeroes(time) {
-    return time < 10 ? `0${time}` : time;
-}
-if (hours > 0) result += `${hours}:`;
-result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`;
-pomodoroTimer.innerText = result;
 // POMODORO end
 // DICTIONARY START
 // https://github.com/patelrohan750/Build-A-Dictionary-app-using-JavaScript/tree/master
@@ -725,7 +741,7 @@ async function getData(word) {
     // Sound
     const soundName = data[0].hwi.prs[0].sound.audio;
     if (soundName) renderSound(soundName);
-    console.log(data);
+// console.log(data);
 }
 function renderSound(soundName) {
     // https://media.merriam-webster.com/soundc11

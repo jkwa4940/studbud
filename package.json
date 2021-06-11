@@ -31,9 +31,7 @@
     "postcss": "^8.3.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "netlify-lambda": "^2.0.8",
-    "owlbot-js": "^2.0.2",
+    "progressbar.js": "^1.1.0",
     "sass": "^1.34.1"
   }
 }

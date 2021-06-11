@@ -1,9 +1,8 @@
 @import 'reset';
 @import 'layout';
 @import 'typography';
-
 @import 'components/navigation';
-
+@import 'components/modal.scss';
 @import 'components/kanban.scss';
 @import 'components/stopwatch.scss';
 @import 'components/pomodoro.scss';
