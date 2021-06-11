@@ -18,7 +18,7 @@
     color: white;
     background-color: #4c4c4c;
     font-weight: 300;
-    font-size: 3.25rem;
+    font-size: 5vw;
     padding: 15px 50px 15px 50px;
     border-radius: 10px;
 }
@@ -77,3 +77,9 @@ button {
     display: none;
 }
 
+
+@media only screen and (max-width: 800px) {
+    .time {
+        padding: 10px 15px;
+    }
+}

@@ -11,6 +11,16 @@
 }
 
 div.progressbar-text {
-  font-size: 3rem;
+  font-size: 5vw;
   color: white;
+  font-family: "Roboto Mono", monospace; 
+}
+
+div#pomodoro-clock {
+  align-content: center;;
+}
+
+
+div#pomodoro-clock-actions {
+  align-content: center;
 }

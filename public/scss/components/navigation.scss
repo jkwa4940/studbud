@@ -29,7 +29,12 @@ nav {
 }
 
 .nav-logo {
-    padding: 25px 0 50px;
+    padding: 20px 0 25px;
+    margin: 0 20px;
+}
+
+.nav-item {
+    margin: 0 20px;
 }
 
 nav.vertical {
@@ -62,15 +67,6 @@ nav.vertical {
 }
 
 
-// On screens that are less than 800px wide, make the sidebar into a topbar
-@media only screen and (max-width: 800px) {
-    nav.vertical {
-        width: 75px
-    }
-    .nav-item a {float: left;}
-    div.content {margin-left: 0;}
-}
-
 
 // On screens that are less than 800px wide, make the sidebar into a topbar
 @media only screen and (max-width: 800px) {
@@ -78,17 +74,17 @@ nav.vertical {
         width: 100%;
         height: auto;
         position: relative;
+        .nav-item a {
+            float: left;
+            
+        }
     }
-    .nav-item a {float: left;}
-    div.content {margin-left: 0;}
 }
 
-  
-  // On screens that are less than 600px, display the bar vertically, instead of horizontally
-@media only screen and (max-width: 600px) {
-.nav-item a {
-    text-align: center;
-    float: none;
+
+@media only screen and (max-width: 800px) {
+    nav .nav-links {
+        display: grid;
     }
 }
-  
+

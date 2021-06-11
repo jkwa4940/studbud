@@ -165,7 +165,11 @@ nav .nav-links .nav-item a.active {
   color: #00ffbf;
 }
 .nav-logo {
-  padding: 25px 0 50px;
+  padding: 20px 0 25px;
+  margin: 0 20px;
+}
+.nav-item {
+  margin: 0 20px;
 }
 nav.vertical {
   width: 200px;
@@ -195,36 +199,17 @@ nav.vertical .nav-links .nav-item a i {
 }
 @media only screen and (max-width: 800px) {
   nav.vertical {
-    width: 75px;
-  }
-
-  .nav-item a {
-    float: left;
-  }
-
-  div.content {
-    margin-left: 0;
-  }
-}
-@media only screen and (max-width: 800px) {
-  nav.vertical {
     width: 100%;
     height: auto;
     position: relative;
   }
-
-  .nav-item a {
+  nav.vertical .nav-item a {
     float: left;
   }
-
-  div.content {
-    margin-left: 0;
-  }
 }
-@media only screen and (max-width: 600px) {
-  .nav-item a {
-    text-align: center;
-    float: none;
+@media only screen and (max-width: 800px) {
+  nav .nav-links {
+    display: grid;
   }
 }
 /* The Modal (background) */
@@ -362,7 +347,7 @@ nav.vertical .nav-links .nav-item a i {
   color: white;
   background-color: #4c4c4c;
   font-weight: 300;
-  font-size: 3.25rem;
+  font-size: 5vw;
   padding: 15px 50px 15px 50px;
   border-radius: 10px;
 }
@@ -411,6 +396,11 @@ button:hover {
   width: 1rem;
   display: none;
 }
+@media only screen and (max-width: 800px) {
+  .time {
+    padding: 10px 15px;
+  }
+}
 .hidden {
   display: none;
 }
@@ -421,8 +411,15 @@ button:hover {
   text-align: center;
 }
 div.progressbar-text {
-  font-size: 3rem;
+  font-size: 5vw;
   color: white;
+  font-family: "Roboto Mono", monospace;
+}
+div#pomodoro-clock {
+  align-content: center;
+}
+div#pomodoro-clock-actions {
+  align-content: center;
 }
 .form-wrap {
   display: flex;
