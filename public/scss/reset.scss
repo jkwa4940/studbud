@@ -33,7 +33,21 @@ body {
 }
 ol, ul {
 	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 }
+
+p.align {
+	padding: 2px;
+	font-family: "Bebas Neue";
+	font-weight: 300;
+	font-size: 1em;
+	color: rgb(0, 255, 191);
+	background-color: rgb(35, 35, 35);
+
+  }
+
+
 blockquote, q {
 	quotes: none;
 }

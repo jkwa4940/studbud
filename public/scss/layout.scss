@@ -4,6 +4,7 @@ html {
     background-size: cover;
 }
 
+
 .page-container {
     background-color: rgb(35, 35, 35);
     padding: 50px;
@@ -23,6 +24,10 @@ html {
     overflow: scroll;
 }
 
+div#tasklist-container {
+    background-color: rgb(35, 35, 35);
+}
+
 .footer {
     position: fixed;
     left: 0;
@@ -32,20 +37,19 @@ html {
     box-shadow: 0 0 75px black;
 }
 
+button .myBtn {
+    width: 25px;
+}
+
+p.text {
+    margin: 10px 0 15px;
+}
+
 @media only screen and (max-width: 800px) {
     .page-container {
         margin: 20px;
     }
 }
-
-
-/* don't know what this is
-@media screen and (max-width: 800px) {
-    .left, .main, .right {
-      width: 100%; // The width is 100%, when the viewport is 800px or smaller
-    }
-  }
-*/
 
 
 

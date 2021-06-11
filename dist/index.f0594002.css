@@ -32,6 +32,16 @@ body {
 }
 ol, ul {
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+p.align {
+  padding: 2px;
+  font-family: "Bebas Neue";
+  font-weight: 300;
+  font-size: 1em;
+  color: #00ffbf;
+  background-color: #232323;
 }
 blockquote, q {
   quotes: none;
@@ -65,6 +75,9 @@ html {
   height: 500px;
   overflow: scroll;
 }
+div#tasklist-container {
+  background-color: #232323;
+}
 .footer {
   position: fixed;
   left: 0;
@@ -73,18 +86,17 @@ html {
   height: 80px;
   box-shadow: 0 0 75px black;
 }
+button .myBtn {
+  width: 25px;
+}
+p.text {
+  margin: 10px 0 15px;
+}
 @media only screen and (max-width: 800px) {
   .page-container {
     margin: 20px;
   }
 }
-/* don't know what this is
-@media screen and (max-width: 800px) {
-    .left, .main, .right {
-      width: 100%; // The width is 100%, when the viewport is 800px or smaller
-    }
-  }
-*/
 p {
   color: white;
   font-family: "Roboto";
@@ -215,7 +227,7 @@ nav.vertical .nav-links .nav-item a i {
   position: fixed;
   z-index: 1;
   padding-top: 100px;
-  left: 0;
+  left: 25%;
   top: 0;
   width: 50vw;
   height: 100%;
@@ -227,7 +239,7 @@ nav.vertical .nav-links .nav-item a i {
   background-color: #222;
   margin: auto;
   padding: 0;
-  width: 80%;
+  width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -257,10 +269,11 @@ nav.vertical .nav-links .nav-item a i {
 }
 /* The Close Button */
 .close {
-  color: white;
-  float: right;
+  margin: 0 0 0 0;
   font-size: 28px;
   font-weight: bold;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
 }
 .close:hover,
 .close:focus {
@@ -276,6 +289,7 @@ nav.vertical .nav-links .nav-item a i {
   color: #222;
   font-family: "Roboto";
   font-size: 1.5em;
+  text-align: center;
 }
 .modal-body {
   padding: 10px 25px;
@@ -283,7 +297,7 @@ nav.vertical .nav-links .nav-item a i {
 .modal-footer {
   background-color: #222;
   color: white;
-  height: 90px;
+  border-radius: 0 0 5px 5px;
 }
 #myKanban {
   overflow-x: auto;
@@ -317,7 +331,7 @@ nav.vertical .nav-links .nav-item a i {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 30px;
+  border-radius: 5px;
 }
 @media only screen and (max-width: 800px) {
   #myKanban {
@@ -353,10 +367,20 @@ button {
   border: none;
   color: white;
   font-size: 10px;
-  margin: 5px 10px;
   cursor: pointer;
 }
 button:hover {
+  background-color: white;
+}
+.buttonPlay {
+  background-color: #00ffbf;
+  border-radius: 5px;
+  border: none;
+  margin: 0 5px;
+  height: auto;
+  cursor: pointer;
+}
+.buttonPlay:hover {
   background-color: white;
 }
 .stopwatch-buttons {
@@ -403,9 +427,10 @@ input {
 button {
   background: #00ffbf;
   color: #222;
-  height: 25px;
-  font-size: 16px;
   cursor: pointer;
+  height: 40px;
+  font-size: 1em;
+  margin: 10px 0;
 }
 .data-container {
   max-width: 600px;

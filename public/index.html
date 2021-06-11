@@ -31,8 +31,8 @@
     <div id="home" class="page-container">
         <div id="task-container" class="task-container">
             <h1>Task List</h1>
-            <p>StudBud is your personalised study app dedicated to helping you manage your schedule. Your added tasks will appear in your Task List and Kanban Board!
-            </p>
+            <p class="text">StudBud is your personalised study app dedicated to helping you manage your schedule.</p>
+            <p class="text">Your added tasks will appear in your Task List and Kanban Board!</p>
                 <!-- Trigger/Open The Modal -->
                 <button id="myBtn">+ Add Task</button>
 
@@ -42,35 +42,28 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h2 id="modalHeader">Modal Header</h2>
+                    <h2 id="modalHeader">Add a Task</h2>
                     </div>
                     <div class="modal-body">
                         <form id="taskform">
                             <div class="row">
                                 <label for="task">Task:</label>
                                 <div class="input">
-                                    <input type="text" name="task" id="taskInput">
+                                    <input type="text" name="task" id="taskInput" required>
                                 </div>
                             </div>
             
                             <div class="row">
                                 <label for="dueDate">Due Date:</label>
                                 <div class="input"> 
-                                    <input type="date" name="date" id="dueDateInput">
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <label for="completionTime">Completion Time:</label>
-                                <div class="input">
-                                    <input type="time" name="completionTime" id="completionTimeInput">
+                                    <input type="date" name="date" id="dueDateInput" required>
                                 </div>
                             </div>
             
                             <div class="row">
                                 <label for="estimatedTime">Estimated Completion Time (mins):</label>
                                 <div class="input">
-                                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                                    <input type="number" name="estimatedTime" id="estimatedTimeInput" required>
                                 </div>
                             </div>
             
@@ -93,21 +86,24 @@
                     </div>
                 </div>
                 </div>
-            <ul id="tasklist">
-            </ul>
+            <div id="tasklist-container">
+                <ul id="tasklist">
+                    <p class="align">Task Name</p>
+                    <p class="align">Due Date</p>
+                    <p class="align">Estimated Time</p>
+                    <p class="align">Priority Rating</p>
+                    <p class="align">Status</p>
+                </ul>
+            </div>
         </div>
     </div>
 
     <div id="page1" class="page-container">
         <div id="task-container" class="task-container">
             <h1>Kanban Board</h1>
-            <button id="addDefault" class="custom-button">Add board</button>
-            <br />
-            <button id="addToDo" class="custom-button">Add element in "To Do" Board</button>
-            <br />
-            <button id="removeBoard" class="custom-button">Remove "Done" Board</button>
-            <br />
-            <button id="removeElement" class="custom-button">Remove "My Task Test"</button>
+            <p class="text">You can see your tasks from your Task List here! Click and drag to move your tasks/boards.</p>
+            <button id="addDefault" class="custom-button">Add Custom board</button>
+            <button id="removeBoard" class="custom-button">Remove Custom Board</button>
             <script src="../jkanban/dist/jkanban.js"></script>
             <div id="myKanban"></div>
             <script>
@@ -195,18 +191,9 @@
 
                     var removeBoard = document.getElementById("removeBoard");
                     removeBoard.addEventListener("click", function() {
-                        KanbanTest.removeBoard("_done");
+                        KanbanTest.removeBoard("_default");
                     });
 
-                    var removeElement = document.getElementById("removeElement");
-                    removeElement.addEventListener("click", function() {
-                        KanbanTest.removeElement("_test_delete");
-                    });
-
-                    var allEle = KanbanTest.getBoardElements("_todo");
-                    allEle.forEach(function(item, index) {
-                        //console.log(item);
-                    });
             </script>
         </div>
     </div>
@@ -214,6 +201,7 @@
     <div id="page2" class="page-container">
         <div id="task-container" class="task-container">
             <h1>Timer</h1>
+            <p class="text">Feel free to use the stopwatch and pomodoro timers to help your study sessions!</p>
             <nav class="sub-nav">
                 <ul class="nav-links">
                     <li class="nav-item"><a href="#page2-1" class="active">Stopwatch</a></li>
@@ -233,7 +221,7 @@
                                 <img id="pauseButton" src="icons/pause-solid.svg">
                             </button>
 
-                            <button class="buttonReset">
+                            <button class="buttonPlay">
                                 <img id="resetButton" src="icons/stop-solid.svg">
                             </button>
                         </div>
@@ -280,15 +268,17 @@
     <div id="page3" class="page-container">
         <div id="task-container" class="task-container">
             <h1>Dictionary</h1>
+            <p class="text">Search for word definitions, synonyms and pronunciations!</p>
                 <div class="form-wrap">
                     <div class="input-wrap">
-                        <input type="text" placeholder="Search for a word" id="input">
+                        <input type="text" placeholder="Search for a word" id="input" required>
                         <button id="search">Search</button>
                     </div>
                 </div>
             </section>
             <div class="data-container">
                 <span class="loading">Loading...</span>
+                <p class="inputWord"></p>
                 <p class="def"></p>
                 <div class="audio"></div>
                 <div class="not__found"></div>

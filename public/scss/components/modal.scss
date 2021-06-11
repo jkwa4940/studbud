@@ -4,7 +4,7 @@
     position: fixed; 
     z-index: 1;
     padding-top: 100px; 
-    left: 0;
+    left: 25%;
     top: 0;
     width: 50vw; 
     height: 100%; 
@@ -17,7 +17,7 @@
     background-color: #222;
     margin: auto;
     padding: 0;
-    width: 80%;
+    width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -39,10 +39,11 @@
   
   /* The Close Button */
 .close {
-    color: white;
-    float: right;
+    margin: 0 0 0 0;
     font-size: 28px;
     font-weight: bold;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
 }
   
 .close:hover,
@@ -59,6 +60,7 @@
         color: #222;
         font-family: "Roboto";
         font-size: 1.5em;
+        text-align: center;
     }
 }
   
@@ -68,5 +70,5 @@
 .modal-footer {
     background-color: #222;
     color: white;
-    height: 90px;
+    border-radius: 0 0 5px 5px;
 }

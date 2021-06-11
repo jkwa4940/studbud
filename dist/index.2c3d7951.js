@@ -416,7 +416,6 @@ const button = document.querySelector("#taskform > button");
 var taskInput = document.getElementById("taskInput");
 var tasklist = document.getElementById("tasklist");
 var dueDateInput = document.getElementById("dueDateInput");
-var completionTimeInput = document.getElementById("completionTimeInput");
 var estimatedTimeInput = document.getElementById("estimatedTimeInput");
 var priorityInput = document.getElementById("priorityInput");
 //eventListener for button
@@ -424,23 +423,19 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
     let task = taskInput.value;
     let dueDate = dueDateInput.value;
-    let completionTime = completionTimeInput.value;
     let estimatedTime = estimatedTimeInput.value;
     let priorityRating = priorityInput.options[priorityInput.selectedIndex].value;
-    addTask(task, dueDate, estimatedTime, priorityRating, completionTime, false);
-    console.log(taskList);
+    addTask(task, dueDate, estimatedTime, priorityRating, false);
+    console.log(tasklist);
 });
 var taskListArray = [];
-function addTask(taskDescription, dueDate, estimatedTime, priorityRating, completionTime, completionStatus) {
-    let d = new Date();
-    let dateCreated = d.getFullYear();
+function addTask(taskDescription, dueDate, estimatedTime, priorityRating) {
     //task components
     let task = {
         taskDescription,
         dueDate,
         estimatedTime,
-        priorityRating,
-        completionStatus
+        priorityRating
     };
     taskListArray.push(task);
     renderTask(task);
@@ -448,24 +443,34 @@ function addTask(taskDescription, dueDate, estimatedTime, priorityRating, comple
 // add rest of info to display for bulletpoint
 function renderTask(task) {
     // Create HTML elements
-    let item = document.createElement("li");
-    item.innerHTML = "<p>" + task.taskDescription + "</p>" + "<p>" + task.dueDate + "</p>" + "<p>" + task.estimatedTime + "</p>" + "<p>" + task.priorityRating + "</p>" + "<p>" + task.completionStatus + "</p>";
-    tasklist.appendChild(item);
+    let item1 = document.createElement("li");
+    item1.innerHTML = "<p>" + task.taskDescription + "</p>";
+    tasklist.appendChild(item1);
+    let item2 = document.createElement("li");
+    item2.innerHTML = "<p>" + task.dueDate + "</p>";
+    tasklist.appendChild(item2);
+    let item3 = document.createElement("li");
+    item3.innerHTML = "<p>" + task.estimatedTime + "</p>";
+    tasklist.appendChild(item3);
+    let item4 = document.createElement("li");
+    item4.innerHTML = "<p>" + task.priorityRating + "</p>";
+    tasklist.appendChild(item4);
+    let item5 = document.createElement("li");
+    tasklist.appendChild(item5);
     // Extra Task DOM elements
     let delButton = document.createElement("button");
     let delButtonText = document.createTextNode("Delete Task");
     delButton.appendChild(delButtonText);
-    item.appendChild(delButton);
-    /*
-  // Complete button
-  var complBtn = document.createElement("button");
-  newTask.appendChild(complBtn);
-  complBtn.innerHTML = "Complete";
-  complBtn.classList.add("complete");
-  */ // Event Listeners for DOM elements
+    item5.appendChild(delButton);
+    // Event Listeners for DOM elements
     delButton.addEventListener("click", function(event) {
         event.preventDefault();
-        item.remove();
+        item1.remove();
+        item2.remove();
+        item3.remove();
+        item4.remove();
+        item5.remove();
+        delButton.remove();
     });
     // Clear the input form 
     form.reset();
@@ -690,6 +695,7 @@ let input = document.querySelector('#input');
 let searchBtn = document.querySelector('#search');
 let apiKey = 'b3459c2f-974e-4b4d-b275-980057d4041a';
 let notFound = document.querySelector('.not__found');
+let wordBox = document.querySelector('.inputWord');
 let defBox = document.querySelector('.def');
 let audioBox = document.querySelector('.audio');
 let loading = document.querySelector('.loading');
@@ -737,6 +743,7 @@ async function getData(word) {
     // Result found
     loading.style.display = 'none';
     let definition = data[0].shortdef[0];
+    wordBox.innerText = word;
     defBox.innerText = definition;
     // Sound
     const soundName = data[0].hwi.prs[0].sound.audio;
